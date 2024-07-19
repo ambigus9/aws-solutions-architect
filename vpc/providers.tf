@@ -13,7 +13,5 @@ provider "aws" {
   default_tags {
     tags = var.tags
   }
-
   region = "us-east-1"
-  
-}
+  }
