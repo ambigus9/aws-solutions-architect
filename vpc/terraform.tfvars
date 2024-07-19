@@ -4,7 +4,7 @@ tags = {
   "owner"       = "Miguel"
   "cloud"       = "AWS"
   "IAC"         = "Terraform"
-  "IAC_Version" = "1.8.5"
+  "IAC_Version" = "1.9.2"
   "project"     = "AWS-SAA-C03"
   "region"      = "virginia"
 }
