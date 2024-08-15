@@ -130,4 +130,23 @@ resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   ip_protocol       = "tcp"
   to_port           = 80
   description = "Port 80 Rule"
+
+  tags = {
+    Name = "Port 80"
+  }
+
+}
+
+resource "aws_vpc_security_group_ingress_rule" "allow_https" {
+  security_group_id = aws_security_group.app_sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 443
+  ip_protocol       = "tcp"
+  to_port           = 443
+  description = "Port 443 Rule"
+
+  tags = {
+    Name = "Port 443"
+  }
+
 }
