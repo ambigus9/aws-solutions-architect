@@ -111,3 +111,23 @@ resource "aws_network_acl" "my_network_acl" {
     Name = "NACL-AWS-LABS"
   }
 }
+
+
+resource "aws_security_group" "app_sg" {
+  name        = "APP-SG"
+  description = "SG-WEB"
+  vpc_id      = aws_vpc.vpc_lab.id
+
+  tags = {
+    Name = "app_sg"
+  }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+  security_group_id = aws_security_group.app_sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 80
+  ip_protocol       = "tcp"
+  to_port           = 80
+  description = "Port 80 Rule"
+}
